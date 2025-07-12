@@ -1,4 +1,4 @@
-import AppRouter from './routers/index.jsx';
+import AppRouter from '@routers';
 
 const App = () => {
 
