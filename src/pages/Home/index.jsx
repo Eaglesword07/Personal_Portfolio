@@ -1,8 +1,8 @@
-// import { DarkModeToggle } from '@components/DarkModeToggle';
+import { DarkModeToggle } from '@components/DarkModeToggle';
 
 const Home = () => {
     return (
-        <div className="bg-violet-300" >
+        <div className="bg-violet-300 dark:bg-violet-900 min-h-screen" >
             {/* Theme toggle button */}
             <DarkModeToggle />
             {/* Backgroung */}
