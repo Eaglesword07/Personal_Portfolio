@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @custom-variant dark (&:where(.dark, .dark *)) */
+
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));

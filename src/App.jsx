@@ -1,12 +1,12 @@
 import AppRouter from '@routers';
+import { ThemeProvider } from '@utils/ThemeContext';
 
 const App = () => {
-
   return (
-    <>
-        <AppRouter />
-    </>
-  )
-}
+    <ThemeProvider>
+      <AppRouter />
+    </ThemeProvider>
+  );
+};
 
-export default App
+export default App;
