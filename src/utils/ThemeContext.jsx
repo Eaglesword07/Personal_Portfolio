@@ -40,6 +40,7 @@ export const ThemeProvider = ({ children }) => {
         } else {
             setTheme('system');
             applyTheme(getSystemTheme());
+            localStorage.setItem('theme', 'system');
         }
     }, []);
 
@@ -50,11 +51,11 @@ export const ThemeProvider = ({ children }) => {
         } else {
             applyTheme(theme);
         }
-        localStorage.setItem('theme', theme);
     }, [theme]);
 
     const toggleTheme = (newTheme) => {
         setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
     };
 
     return (
