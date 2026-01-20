@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
     };
 
     return (
-        <div className="absolute bottom-0 right-0 z-0 flex items-center gap-1 p-1 rounded-full
+        <div className="absolute bottom-0 left-0 z-0 flex items-center gap-1 p-1 rounded-full
                 text-gray-950/5 bg-gray-950/5 shadow-gray-400/50
                 dark:bg-white/30 dark:text-white dark:border-gray-700/50 dark:shadow-gray-800/50" >
             <span>

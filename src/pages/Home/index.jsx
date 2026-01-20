@@ -1,4 +1,3 @@
-import { ThemeToggle } from "@components/Ui/ThemeToggle/ThemeToggle";
 
 const Home = () => {
     return (
