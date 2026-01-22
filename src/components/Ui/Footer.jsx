@@ -1,3 +1,4 @@
+import { LINKS } from '@constants/shared';
 
 const Footer = () => {
     return (
@@ -14,7 +15,7 @@ const Footer = () => {
             <span>
                 <a
                 className="hover:underline" 
-                href="https://github.com/Eaglesword07/Personal_Portfolio" 
+                href={LINKS.personal_website}
                 target="_blank" 
                 rel="noopener noreferrer">GitHub Code</a>
             </span>

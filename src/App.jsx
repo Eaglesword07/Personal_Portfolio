@@ -1,5 +1,5 @@
 import AppRouter from '@routers';
-import { ThemeProvider } from '@utils/ThemeContext';
+import { ThemeProvider } from '@contexts/ThemeContext';
 
 const App = () => {
   return (

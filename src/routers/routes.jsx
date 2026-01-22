@@ -1,4 +1,4 @@
-import { AppRoutes } from '@utils/appRoutes';
+import { AppRoutes } from '@constants/appRoutes';
 import { HomePage } from '@pages';
 
 import { Layout } from '@components/layout';

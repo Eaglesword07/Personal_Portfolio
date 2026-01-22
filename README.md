@@ -35,7 +35,8 @@ src/
 ├── components/       # Reusable UI components (Navbar, Footer, ThemeToggle, etc.)
 ├── pages/            # Page components (Home, Projects, Contact, etc.)
 ├── routers/          # Routers
-├── utils/            # Constants, Reusable functions
+├── constants/        # Constants, shared info Reusable functions
+├── contexts/         # Reusable functions
 ├── assets/           # Images, icons, etc.
 ├── App.jsx           # Main app component
 ├── index.css         # Tailwind imports
