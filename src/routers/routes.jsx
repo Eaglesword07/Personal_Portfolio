@@ -1,7 +1,7 @@
 import { AppRoutes } from '@constants/appRoutes';
 import { HomePage } from '@pages';
 
-import { Layout } from '@components/layout';
+import { Layout } from '@components/layout/Layout';
 
 export const routes = [
     { path : AppRoutes.HOME, component : <Layout><HomePage /></Layout> },
