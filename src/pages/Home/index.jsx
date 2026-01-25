@@ -2,14 +2,7 @@
 const Home = () => {
     return (
         <div>
-            {/* Backgroung */}
-            <h1 className="text-center" >Home Page</h1>
-            {/* Navbar */}
-
-            {/* Hero section */}
-
-            {/* Footer */}
-
+            {/* <h1 className="text-center" >Home Page</h1> */}
         </div>
     );
 }

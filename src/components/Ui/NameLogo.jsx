@@ -1,7 +1,7 @@
 
 export const NameLogo = () => {
     return (
-        <div className="absolute top-10 left-5 sm:top-3 sm:left-6 lg:top-8 lg:left-10
+        <div className="absolute top-5 left-5 sm:top-3 sm:left-6 lg:top-8 lg:left-10
                         text-xs uppercase font-sans tracking-tight leading-none">
             <div className="text-primary">
                 <a href="/">
