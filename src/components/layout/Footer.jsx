@@ -2,7 +2,7 @@ import { LINKS } from '@constants/shared';
 
 const Footer = () => {
     return (
-        <div className="footer absolute bottom-3 right-2 flex justify-center gap-4 
+        <div className="footer sm:fixed md:fixed bottom-3 right-2 flex justify-center gap-4 
                     text-center text-xs text-gray-700 sm:flex-row sm:gap-2 sm:pr-4 
                     dark:text-gray-400">
             <div>
