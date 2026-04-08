@@ -7,8 +7,8 @@ const PanelList = () => {
             <nav className="flex flex-col gap-4 p-4 rounded-lg">
                 {NAV_LIST.map(({name, href, icon: Icon}) => (
                     <a 
-                        key={href} 
-                        to={href}
+                        key={name} 
+                        href={href}
                         className='flex items-center relative'
                     >
                         <div className="peer">

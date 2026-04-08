@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
+
 /* @custom-variant dark (&:where(.dark, .dark *)) */
 
 @theme {
