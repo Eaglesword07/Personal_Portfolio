@@ -7,6 +7,7 @@
  * Customise NAME, BIO, MANIFESTO, ACCENT_WORD, ROLE, LOCATION, AVAILABILITY at the top.
  */
 
+import { useMemo } from 'react';
 import portrait from '@/assets/portrait.avif';
 
 const NAME         = 'Douglas';
@@ -32,28 +33,68 @@ const accentIndices = new Set();
   }
   const nonSpaceCount = MANIFESTO.split('').filter(c => c !== ' ').length;
 
-  
-  function renderManifesto(litProgress) {
-    let charsSeen = 0;
-    return MANIFESTO.split('').map((char, i) => {
-        if (char === ' ') return <span key={i}> </span>;
-        charsSeen++;
-        const threshold = charsSeen / nonSpaceCount;
-        const isLit    = litProgress >= threshold;
-        const isAccent = accentIndices.has(i);
-        return (
-            <span
-                key={i}
-                style={{
-                    display: 'inline-block',
-                    color: isLit ? (isAccent ? '#e05a3a' : '#fff') : '#333',
-                    transition: 'color 0.2s ease',
-                }}
-            >
-                {char}
-            </span>
-        );
+
+function preprocessManifesto(text) {
+  let charsSeen = 0;
+  const words = [];
+  let currentWord = [];
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+
+    if (char === ' ') {
+      if (currentWord.length > 0) {
+        words.push(currentWord);
+        currentWord = [];
+      }
+      continue;
+    }
+
+    currentWord.push({
+      char,
+      index: charsSeen,
+      originalIndex: i,  
     });
+
+    charsSeen++;
+  }
+
+  if (currentWord.length > 0) {
+    words.push(currentWord);
+  }
+
+  return words;
+}
+
+function renderManifesto(litProgress, processed) {
+  return processed.map((word, wordIndex) => (
+    <span
+      key={wordIndex}
+      style={{ whiteSpace: 'nowrap', marginRight: '0.25em' }}
+    >
+      {word.map(({ char, index, originalIndex }, i) => {
+        const threshold = (index + 1) / nonSpaceCount;
+        const isLit = litProgress >= threshold;
+        const isAccent = accentIndices.has(originalIndex);
+
+        return (
+          <span
+            key={i}
+            style={{
+              marginRight: '0.25em',
+              display: 'inline-block',
+              color: isLit
+                ? (isAccent ? '#e05a3a' : '#fff')
+                : '#333',
+              transition: 'color 0.2s ease',
+            }}
+          >
+            {char}
+          </span>
+        );
+      })}
+    </span>
+  ));
 }
 
 
@@ -84,6 +125,8 @@ function renderManifestoDesktop(litProgress) {
 
 
 const About = ({photoStyle, bioVisible, litRef, litProgress }) => {
+
+  const processed = useMemo(() => preprocessManifesto(MANIFESTO), []);
 
   const mobileLitRef  = (el) => { if (el && window.innerWidth < 768)  litRef.current = el; };
   const desktopLitRef = (el) => { if (el && window.innerWidth >= 768) litRef.current = el; };
@@ -144,11 +187,11 @@ const About = ({photoStyle, bioVisible, litRef, litProgress }) => {
             className="px-4 py-16 text-center font-black leading-tight"
             style={{ 
               background: '#111',
-              fontSize: 'clamp(20px, 5vw, 40px)',
+              fontSize: 'clamp(24px, 5vw, 40px)',
               letterSpacing: '-0.01em' }}
           >
             <h2>
-              {renderManifesto(litProgress)}
+              {renderManifesto(litProgress, processed)}
             </h2>
           </div>
         </div>
