@@ -47,7 +47,7 @@ const accentIndices = new Set();
                 style={{
                     display: 'inline-block',
                     color: isLit ? (isAccent ? '#e05a3a' : '#fff') : '#333',
-                    transition: 'color 0.3s ease',
+                    transition: 'color 0.2s ease',
                 }}
             >
                 {char}
@@ -138,16 +138,18 @@ const About = ({photoStyle, bioVisible, litRef, litProgress }) => {
         </div>
 
         {/* Manifesto */}
-        <div
-          ref={mobileLitRef}
-          className="mt-16 -mx-4 px-4 py-16 text-center font-black leading-tight"
-          style={{ 
-            background: '#111',
-            fontSize: 'clamp(20px, 5vw, 40px)',
-            letterSpacing: '-0.01em' }}
-        >
-          <div>
-            {renderManifesto(litProgress)}
+        <div className='p-6 flex justify-center'>
+          <div
+            ref={mobileLitRef}
+            className="px-4 py-16 text-center font-black leading-tight"
+            style={{ 
+              background: '#111',
+              fontSize: 'clamp(20px, 5vw, 40px)',
+              letterSpacing: '-0.01em' }}
+          >
+            <h2>
+              {renderManifesto(litProgress)}
+            </h2>
           </div>
         </div>
       </div>

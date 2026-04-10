@@ -65,20 +65,17 @@ export function useSectionScroll() {
                 });
                 setActiveSection(current);
 
-                // if (litRef.current) {
-                //     const litTop = litRef.current.offsetTop - el.clientHeight;
-                //     const p = clamp((sy - litTop) / (litRef.current.offsetHeight * 1.2), 0, 1);
-                //     setLitProgress(p);
-                // }
-
                 if (litRef.current) {
                     const litRect  = litRef.current.getBoundingClientRect();
                     const elRect   = el.getBoundingClientRect();
-                    // How far the lit block has scrolled into the viewport
+                    const height   = litRef.current.offsetHeight;  
                     const entered  = elRect.bottom - litRect.top;
-                    const total    = el.clientHeight + litRef.current.offsetHeight * 1.2;
-                    setLitProgress(clamp(entered / total, 0, 1));
+                    const startAt  = height * 0.8;                 
+                    const duration = height * 1.7;               
+                    let p = (entered - startAt) / duration;
+                    setLitProgress(clamp(p, 0, 1));
                 }
+
 
                 ticking = false;
                 });
