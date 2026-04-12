@@ -21,6 +21,7 @@ const TOP_SECTIONS = [
 const Homepage = () => {
     const {
     scrollerRef,
+    aboutRef,
     litRef,
     photoStyle,
     bioVisible,
@@ -46,7 +47,7 @@ const Homepage = () => {
                 dark={false}
             />
  
-            <div id="about" className="snap-start min-h-screen">
+            <div id="about" ref={aboutRef} className="snap-start min-h-screen">
                 <About 
                     photoStyle={photoStyle}
                     bioVisible={bioVisible}
@@ -74,4 +75,4 @@ const Homepage = () => {
 };
 
 export default Homepage;
-// export { Home, About, Portfolio, Contact };
+export { Home, About, Portfolio, Contact };
